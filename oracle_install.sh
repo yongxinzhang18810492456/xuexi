@@ -211,8 +211,8 @@ function oracle_file() {
     cp ${root_path}/conf/db_install.rsp .
     cp ${root_path}/conf/dbca_single.rsp .
   else
-    wget https://raw.githubusercontent.com/spdir/oracle-single-install/master/conf/db_install.rsp
-    wget https://raw.githubusercontent.com/spdir/oracle-single-install/master/conf/dbca_single.rsp
+    wget https://raw.githubusercontent.com/yongxinzhang18810492456/xuexi/master/conf/db_install.rsp
+    wget https://raw.githubusercontent.com/yongxinzhang18810492456/xuexi/master/conf/dbca_single.rsp
   fi
   #modify config file
   if [[ ${ORACLE_DB_PASSWD} != "" ]];then
@@ -307,7 +307,7 @@ function cdb_pdb() {
     rm -rf ${INIT_CDB_FILE}
     cp ${root_path}/conf/initcdb.ora ${INIT_CDB_FILE}
   else
-      wget https://raw.githubusercontent.com/spdir/oracle-single-install/master/conf/initcdb.ora -O ${INIT_CDB_FILE}
+      wget https://raw.githubusercontent.com/yongxinzhang18810492456/xuexi/master/conf/initcdb.ora -O ${INIT_CDB_FILE}
   fi
   if [[ ${SID} != 'oriedb' ]];then
     sed -i "s/oriedb/${SID}/g" ${INIT_CDB_FILE}
