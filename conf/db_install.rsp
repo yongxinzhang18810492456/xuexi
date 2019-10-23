@@ -18,7 +18,7 @@
 #-------------------------------------------------------------------------------
 # Do not change the following system generated value.
 #-------------------------------------------------------------------------------
-oracle.install.responseFileVersion=/oracle/install/rspfmt_dbinstall_response_schema_v12.2.0
+oracle.install.responseFileVersion=/oracle/install/rspfmt_dbinstall_response_schema_v12.1.0
 
 #-------------------------------------------------------------------------------
 # Specify the installation option.
@@ -43,7 +43,7 @@ INVENTORY_LOCATION=/data/app/oracle/oraInventory
 #-------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Home.
 #-------------------------------------------------------------------------------
-ORACLE_HOME=/data/app/oracle/product/12.2.0/db_1
+ORACLE_HOME=/data/app/oracle/product/12.1.0/db_1
 
 #-------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Base.
