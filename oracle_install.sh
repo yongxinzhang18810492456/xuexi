@@ -202,7 +202,8 @@ function base_config() {
 #option oracle file
 function oracle_file() {
   #Decompression package
-  unzip /tmp/linuxx64_12201_database.zip -d /tmp
+  unzip /tmp/linuxamd64_12102_database_1of2.zip -d /tmp/
+  unzip /tmp/linuxamd64_12102_database_2of2.zip -d /tmp/
   chown -R oracle:oinstall /tmp/database
   #get install config file
   mkdir ${response} && cd ${response}
