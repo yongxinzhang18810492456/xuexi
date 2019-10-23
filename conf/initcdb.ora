@@ -14,5 +14,5 @@ open_cursors=300
 remote_login_passwordfile='EXCLUSIVE'
 undo_tablespace='UNDOTBS1'
 control_files = (/data/app/oracle/oradata/oriedb/ora_control01.ctl, /data/app/oracle/oradata/oriedb/ora_control02.ctl)
-compatible ='12.2.0'
+compatible ='12.1.0'
 enable_pluggable_database=true
