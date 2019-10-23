@@ -88,8 +88,12 @@ function j_para() {
     exit
   fi
   #判断数据库包文件是否存在
-  if [ ! -f "/tmp/linuxx64_12201_database.zip" ]; then
-    echo -e "\033[34mInstallNotice >>\033[0m \033[31mlinuxx64_12201_database.zip not found\033[0m"
+  if [ ! -f "/tmp/linuxamd64_12102_database_1of2.zip" ]; then
+    echo -e "\033[34mInstallNotice >>\033[0m \033[31mlinuxamd64_12102_database_1of2.zip not found\033[0m"
+    exit
+  fi
+  if [ ! -f "/tmp/linuxamd64_12102_database_2of2.zip" ]; then
+    echo -e "\033[34mInstallNotice >>\033[0m \033[31mlinuxamd64_12102_database_2of2.zip not found\033[0m"
     exit
   fi
   if [[ ${Get_Config_Method} == "1" ]]; then
