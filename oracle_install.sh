@@ -28,7 +28,7 @@ fi
 root_path=`pwd`
 response='/home/oracle/response'
 MemTotle=$(grep -r 'MemTotal' /proc/meminfo | awk -F ' ' '{print int($2/1024/1024+1)}')
-ORACLE_HOME='/data/app/oracle/product/12.2.0/db_1'
+ORACLE_HOME='/data/app/oracle/product/12.1.0/db_1'
 con_name="
 sqlplus / as sysdba<< EOF
 show con_name;
@@ -134,7 +134,7 @@ function base_config() {
   && echo "$OracleUserPasswd" | passwd oracle --stdin
   #mkdir oracle need directory
   orcl_home='/data/app'
-  mkdir -p ${orcl_home}/oracle/product/12.2.0/db_1 && chmod -R 775 ${orcl_home}/oracle \
+  mkdir -p ${orcl_home}/oracle/product/12.1.0/db_1 && chmod -R 775 ${orcl_home}/oracle \
   && chown -R oracle:oinstall ${orcl_home}
   #modify some file
   echo 'fs.file-max = 6815744
@@ -180,7 +180,7 @@ function base_config() {
   export ORACLE_HOSTNAME=DB
   export ORACLE_UNQNAME=oriedb
   export ORACLE_BASE=/data/app/oracle
-  export ORACLE_HOME=$ORACLE_BASE/product/12.2.0/db_1
+  export ORACLE_HOME=$ORACLE_BASE/product/12.1.0/db_1
   export ORACLE_SID=oriedb
   export PATH=/usr/sbin:$PATH
   export PATH=$ORACLE_HOME/bin:$PATH
@@ -298,7 +298,7 @@ function single_instance() {
 #install oracle cdb instance
 function cdb_pdb() {
   echo -e "\033[34mInstallNotice >>\033[0m \033[32mStart install CDB \033[05m...\033[0m"
-  INIT_CDB_FILE="/data/app/oracle/product/12.2.0/db_1/dbs/initcdb.ora"
+  INIT_CDB_FILE="/data/app/oracle/product/12.1.0/db_1/dbs/initcdb.ora"
   if [[ ${Get_Config_Method} == "1" ]]; then
     rm -rf ${INIT_CDB_FILE}
     cp ${root_path}/conf/initcdb.ora ${INIT_CDB_FILE}
@@ -323,15 +323,15 @@ function cdb_pdb() {
   "
   echo ${cdb_sql}
   su - oracle -c "${cdb_sql}"
-  su - oracle -c "sed -i '35s/util/Util/g' /data/app/oracle/product/12.2.0/db_1/rdbms/admin/catcdb.pl"
+  su - oracle -c "sed -i '35s/util/Util/g' /data/app/oracle/product/12.1.0/db_1/rdbms/admin/catcdb.pl"
   echo -e '\033[42;31mFollow the steps to run the following commands\033[0m
   \033[34m1. $ \033[32msu - oracle\033[0m\033[0m
-  \033[34m2. $ \033[32mcd /data/app/oracle/product/12.2.0/db_1/perl/lib/5.22.0/x86_64-linux-thread-multi/Hash/\033[0m\033[0m
+  \033[34m2. $ \033[32mcd /data/app/oracle/product/12.1.0/db_1/perl/lib/5.22.0/x86_64-linux-thread-multi/Hash/\033[0m\033[0m
   \033[34m3. $ \033[32mexport PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch:$ORACLE_HOME/perl/bin:$ORACLE_HOME/jdk/bin:$PATH\033[0m\033[0m
   \033[34m4. $ \033[32msqlplus / as sysdba\033[0m\033[0m
   \033[34m5. SQL > \033[32m@?/rdbms/admin/catcdb.sql\033[0m\033[0m
-  \033[34m   Enter value for 1: \033[32m/data/app/oracle/product/12.2.0/db_1/rdbms/admin\033[0m\033[0m
-  \033[34m   Enter value for 2: \033[32m/data/app/oracle/product/12.2.0/db_1/rdbms/admin/catcdb.pl\033[0m\033[0m
+  \033[34m   Enter value for 1: \033[32m/data/app/oracle/product/12.1.0/db_1/rdbms/admin\033[0m\033[0m
+  \033[34m   Enter value for 2: \033[32m/data/app/oracle/product/12.1.0/db_1/rdbms/admin/catcdb.pl\033[0m\033[0m
   \033[34m   Enter new password for SYS: \033[32msys user password\033[0m\033[0m
   \033[34m   Enter new password for SYSTEM: \033[32msystem user password\033[0m\033[0m
   \033[34m   Enter temporary tablespace name: \033[32mtablespace name\033[0m\033[0m
